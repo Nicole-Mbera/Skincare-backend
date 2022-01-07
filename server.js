@@ -1,16 +1,18 @@
 import express from "express";
+import userRouter from "./src/routes/userRouter"
+import mongoose from "mongoose";
 import bodyParser from "body-parser";
-import dotenv from "dotenv"
-import mongoose  from "mongoose";
+import dotenv from "dotenv";
 
 dotenv.config ("./.env");
 const app=express();
 
 app.use(bodyParser.json());
+app.use("/User",userRouter);
 
 
 app.use("/",(req,res)=> res.status(200).json({
-    message: "This is Tour APi"
+    message: "This Skin Care API is on wrong Path "
 }));
 
 const dbUrl=process.env.DATABASEURL;
