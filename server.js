@@ -4,15 +4,25 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 
+import categoryRouter from "./src/routes/categoryRoutes";
+import productRouter from "./src/routes/productRouter"
+
+
+
 dotenv.config ("./.env");
 const app=express();
 
 app.use(bodyParser.json());
+
 app.use("/User",userRouter);
 
 
+
+app.use("/user",categoryRouter);
+app.use("/product", productRouter)
 app.use("/",(req,res)=> res.status(200).json({
-    message: "This Skin Care API is on wrong Path "
+    message: "This is  APi does not exist"
+
 }));
 
 const dbUrl=process.env.DATABASEURL;
