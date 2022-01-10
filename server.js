@@ -2,15 +2,16 @@ import express from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv"
 import mongoose  from "mongoose";
+import orderRoute from "./src/routes/orderRoutes"
 
 dotenv.config ("./.env");
 const app=express();
 
 app.use(bodyParser.json());
-
-
+app.use("/order", orderRoute
+);
 app.use("/",(req,res)=> res.status(200).json({
-    message: "This is Tour APi"
+    message: "This is APi does not exist"
 }));
 
 const dbUrl=process.env.DATABASEURL;
