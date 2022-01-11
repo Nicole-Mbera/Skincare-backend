@@ -1,4 +1,5 @@
 import UserInfos from "../models/user";
+import bcrypt from "bcrypt";
 
 class UserController {
 
@@ -6,6 +7,9 @@ class UserController {
  //Create user in db
 
  	static async createUser(req, res) {
+
+      const hashPassword= bcrypt.hashSync(req.body.password,10)
+      req.body.password=hashPassword
       const user = await UserInfos.create(req.body);
 
            if (!user) {
@@ -33,6 +37,7 @@ class UserController {
 
     static async getOneUser(req, res) {
         
+         
         const user = await UserInfos.findById(req.params.id);
          if (!user) {
             return res
