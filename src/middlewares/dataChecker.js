@@ -1,3 +1,4 @@
+
 import UserInfos from "../models/user";
 
 class DataChecker{
@@ -14,5 +15,6 @@ class DataChecker{
         return res.status(401).json({ erroe:"email already exists you must try another!"})
     }
 }
+
 
 export default DataChecker;
