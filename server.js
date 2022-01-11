@@ -3,7 +3,6 @@ import userRouter from "./src/routes/userRouter"
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-
 import categoryRouter from "./src/routes/categoryRoutes";
 import productRouter from "./src/routes/productRouter"
 
@@ -14,11 +13,8 @@ const app=express();
 
 app.use(bodyParser.json());
 
-app.use("/User",userRouter);
-
-
-
-app.use("/user",categoryRouter);
+app.use("/user",userRouter);
+app.use("/category",categoryRouter);
 app.use("/product", productRouter)
 app.use("/",(req,res)=> res.status(200).json({
     message: "This is  APi does not exist"

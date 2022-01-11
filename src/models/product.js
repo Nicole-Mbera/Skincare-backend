@@ -6,13 +6,12 @@ const productSchema = new mongoose.Schema(
         productPicture: String,
         name: String,
         description: String,
-        price: Number
+        price: Number,
+        category:{
 
-        // category:{
-
-        //     type: mongoose.Schema.ObjectId,
-        //     ref: "Category"
-        // }
+            type: mongoose.Schema.ObjectId,
+            ref: "Category"
+        }
 
 
     });
