@@ -21,10 +21,14 @@ app.use(bodyParser.json());
 
 
 app.use("/user",userRouter);
+
+
+
 app.use("/category",categoryRouter);
 
 app.use("/order", orderRoute
 );
+
 
 
 app.use("/product", productRouter)
