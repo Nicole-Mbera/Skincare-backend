@@ -1,4 +1,4 @@
-import categoryInfo from "../models/category"
+import categoryInfo from "../models/category";
 
 class CategoryController{
 

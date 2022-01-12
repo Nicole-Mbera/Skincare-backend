@@ -1,4 +1,4 @@
-import orderInfos from "../models/order"
+import orderInfos from "../models/order";
 
 class orderController{
     //create order
@@ -33,7 +33,7 @@ class orderController{
 
       message: "orders fetched successfully",
 
-      data: orders,
+      user: orders,
 
     });
 
@@ -86,8 +86,11 @@ static async updateOneorder(req,res){
         return res .status(404).json({ Error: "order is not updated"});
         }
         return res .status(200).json({Message: "order Updated Successfully", data: order});
-      }   
-}
+      } 
+        
+        
+    
+  }
 
 
 
