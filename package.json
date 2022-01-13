@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "babel-node ./server.js",
-    "dev-start": "babel-node ./server.js",
-     "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-start": "nodemon --exec babel-node ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Elite group",
   "license": "ISC",
@@ -25,6 +25,7 @@
     "express-validator": "^6.14.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.0",
+    "nodemon": "^2.0.15",
     "twilio": "^3.72.0",
     "validator": "^13.7.0"
   },

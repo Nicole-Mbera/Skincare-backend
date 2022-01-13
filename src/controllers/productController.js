@@ -50,7 +50,16 @@ static async updateproduct(req,res){
     return res.status(200).json({message:"product updated successfully",data:product});
 
 }
+// get product by user ID
+static async getAllProductByUserId(req,res){        
+    const products =await productInfo.find({user:req.params.id});
 
+    if (!products){
+        return res.status(404).json({error:" No Products"});
+    }
+    return res.status(200).json({message:"All  Bookings by user Id succesfully viewed", data:products});
+
+}
 
 }
 
