@@ -1,10 +1,6 @@
 import UserInfos from "../models/user";
-
 import productInfo from "../models/product";
 import order from "../models/order";
-
-
-
 import bcrypt from "bcrypt"
 import TokenAuth from "../helpers/tokenAuth"
 import sendSms from "../helpers/sendSms";
