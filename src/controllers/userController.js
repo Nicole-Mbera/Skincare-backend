@@ -1,5 +1,10 @@
 import UserInfos from "../models/user";
-import productInfo from "../models/product"
+
+import productInfo from "../models/product";
+import order from "../models/order";
+
+
+
 import bcrypt from "bcrypt"
 import TokenAuth from "../helpers/tokenAuth"
 import sendSms from "../helpers/sendSms";
@@ -76,6 +81,11 @@ class UserController {
       }
       return res .status(200).json({Message: "User Updated Successfully", data: user});
     }
+
+  
+    
+        
+
        
     
     static async userLogin(req,res,){
@@ -96,6 +106,7 @@ class UserController {
       return res.status(400).json({error:"wrong password"});
       
     }
+
     
 
 
@@ -119,6 +130,7 @@ class UserController {
 //     // return res.status(200).json({message:"success", data:product});
 
 // } 
+
 
 
 
