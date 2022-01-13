@@ -107,6 +107,16 @@ class UserController {
       
     }
 
+
+    static async getAllOrderedproductsByProductId (req,res){
+
+      const orderedProducts= await productInfo.find({product:req.params.id})
+      if(!orderedProducts){
+          return res.status(400).json({error:"Products not found"})
+      }
+          return res.status(200).json({message:"retrived all booked product successfully", data:orderedProducts})
+  }
+
     
 
 
@@ -133,10 +143,7 @@ class UserController {
 
 
 
-
-
 }
 
- 
 
 export default UserController;
