@@ -7,7 +7,6 @@ import orderRoute from "./src/routes/orderRoutes";
 import categoryRouter from "./src/routes/categoryRoutes";
 import productRouter from "./src/routes/productRouter";
 
-
 dotenv.config ("./.env");
 const app=express();
 
