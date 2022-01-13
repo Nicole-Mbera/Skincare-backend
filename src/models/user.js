@@ -23,6 +23,8 @@ const userSchema = new mongoose.Schema(
           type:String,
           required:true,
       },
+
+    
       address:{
           type:String,
           default:"Rwanda"
@@ -49,6 +51,6 @@ const userSchema = new mongoose.Schema(
 
 );
 
-const user = mongoose.model('User',userSchema)
+const User = mongoose.model('User',userSchema)
 
-export default user;
+export default User;
