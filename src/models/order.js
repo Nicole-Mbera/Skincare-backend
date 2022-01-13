@@ -1,22 +1,29 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 const orderSchema= new mongoose.Schema(
 {
-// user: {
-//     type: mongoose.Schema.ObjectId,
-//     ref:"User"
-// },
-//  productslist:[
-//         {
-//             type: mongoose.Schema.ObjectId,
-//             ref:"Product"
-//         }
+// userId:String,
+// productId:String,
+// status:String,
+user: {
+    type: mongoose.Schema.ObjectId,
+    ref:"User"
+},
+ productslist:[
+        {
+            type: mongoose.Schema.ObjectId,
+            ref:"Product"
+        }
 
-// ],
-productslist:String,
-user:String,
-totalAmount: Number,
-userId: Number,
-status: String
+],
+
+// totalAmount: Number,
+
+status:{
+    type:String,
+    enum:["pending","paid"],
+    default:"pending"
+}
+
 },
 {
     timestamps:true
