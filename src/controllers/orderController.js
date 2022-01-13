@@ -3,9 +3,9 @@ import orderInfos from "../models/order";
 class orderController{
     //create order
     static async createorder(req,res){
-        const order= await orderInfos.create(req.body);
+        const order= await orderInfos.create({user:req.user._id, product:req.params.id});
 
-        console.log(order)
+        
 
         if(!order){
             return res.status(404).json({error:"failed to fetch order"});

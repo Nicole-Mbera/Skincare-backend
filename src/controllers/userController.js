@@ -1,6 +1,6 @@
 import UserInfos from "../models/user";
-// import productInfo from "../models/product"
-// import order from "../models/order";
+import productInfo from "../models/product";
+import order from "../models/order";
 
 
 import bcrypt from "bcrypt"
@@ -79,24 +79,7 @@ class UserController {
       return res .status(200).json({Message: "User Updated Successfully", data: user});
     }
 
-    //  //function of making an order
-    //    static async orderProduct(req,res){
-    //     const orderData = {
   
-    //       user: req.user._id,
-    //       product: req.params.id,
-        
-    
-    //     };  
-    //     const order = await orderInfos.create(orderData);
-    //     const Product = await productInfo.findById(req.params.id);
-      
-    //     if(!order){
-    //         return res.status(404)
-    //         .json ({error:"failed to order"});
-    //     }
-    //     return res.status(200).json({message:"ordered succcesfully", data:order});
-    // }      
     
         
 
