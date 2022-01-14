@@ -11,10 +11,12 @@ dotenv.config ("./.env");
 const app=express();
 
 app.use(bodyParser.json());
+
 app.use("/user",userRouter);
 app.use("/category",categoryRouter);
 app.use("/order", orderRoute);
 app.use("/product", productRouter)
+
 app.use("/",(req,res)=> res.status(200).json({
     message: "This is  APi does not exist"
 

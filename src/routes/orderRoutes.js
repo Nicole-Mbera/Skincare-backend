@@ -7,7 +7,8 @@ import verifyToken from "../middlewares/verifytoken";
 const orderRoute = express.Router()
 
   
-orderRoute.post("/create", verifyToken, VerifyAccess("user"),orderController.createorder);
+
+orderRoute.post("/", verifyToken, VerifyAccess("user"),orderController.createorder);
 orderRoute.get("/all",orderController.getAllorder);
 orderRoute.get("/:id",orderController.getOneorder);
 orderRoute.delete("/:id",orderController.deleteorder);

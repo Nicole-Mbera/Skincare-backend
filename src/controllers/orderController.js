@@ -1,22 +1,26 @@
 import orderInfos from "../models/order";
 import sendSms from "../helpers/sendSms";
-import productInfo from "../models/product";
-class orderController {
-  //create order
-  static async createorder(req, res) {
-    const order = await orderInfos.create({
-      user: req.user._id,
-      productslist:req.body.productslist
-    });
-    const product = await productInfo.findById(req.params.id);
+import productInfo from "../models/product"
 
-    if (!order) {
-      return res.status(404).json({ error: "failed to fetch order" });
-    }
-    return res.status(200).json({
-      message: "orders fetched successfully",
+class orderController{
+    //create order
+    static async createorder(req,res){
+        const order= await orderInfos.create({user:req.user._id, productslist:req.body.productslist});
+        const product = await productInfo.findById(req.params.id);
 
-      data: order,
+        
+
+        if(!order){
+            return res.status(404).json({error:"failed to fetch order"});
+        }
+        return res.status(200).json({
+
+            message: "orders fetched successfully",
+  
+            data: order,
+
+
+   
     });
   }
   //get all orders

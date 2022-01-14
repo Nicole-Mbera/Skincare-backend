@@ -1,10 +1,11 @@
 import dotenv from "dotenv";
+
 dotenv.config();
 const client = require("twilio")(
   process.env.TWILIO_ACCOUNT_SID,
   process.env.TWILIO_AUTH_ID
 );
-//Hey anne, your  ordering accepted The application Id:233435
+
 const sendSms = (
   userName,
   Products,
