@@ -1,4 +1,3 @@
-
 import dotenv from "dotenv";
 dotenv.config();
 const client = require("twilio")(
@@ -8,24 +7,27 @@ const client = require("twilio")(
 //Hey anne, your  ordering accepted The application Id:233435
 const sendSms = (
   userName,
-  ProductName,
+  Products,
+  payment,
   applicationStatus,
   applicationId,
   userphone
 ) => {
-  client.messages.create({
-    body:
-      "hey " +
-      userName +
-      ", your " +
-      ProductName +
-      " ordering product " +
-      applicationStatus +
-      " the application Id: " +
-      applicationId,
-      from:"+14156972188",
-      to:userphone
-  }).then((message)=>console.log(message.sid));
+const status=  applicationStatus == "paid"? " Succefull paid": " not yet paid "
+  client.messages
+    .create({
+      body:
+        "hey " +
+          userName +
+          ", your " +
+          Products.toString() +
+          " products, Amount to Pay: " +
+          payment +
+          " frw " +status
+          + " the application Id: " + applicationId,
+      from: "+15074282144",
+      to: userphone,
+    })
+    .then((message) => console.log(message.sid));
 };
 export default sendSms;
-
