@@ -21,6 +21,6 @@ userRouter.patch("/use/:id",UserController.updateOneUser)
 userRouter.patch("/user/status",UserController.updateOneUser)
 
 
-userRouter.get("/products/:id",UserController.getAllOrderedproductsByProductId
+userRouter.get("/products/:id",UserController.getAllOrderedproductsByProductId)
 
 export default userRouter;
