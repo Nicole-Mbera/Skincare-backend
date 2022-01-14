@@ -1,10 +1,11 @@
 import orderInfos from "../models/order";
 import sendSms from "../helpers/sendSms";
 import productInfo from "../models/product"
+
 class orderController{
     //create order
     static async createorder(req,res){
-        const order= await orderInfos.create({user:req.user._id, product:req.params.id});
+        const order= await orderInfos.create({user:req.user._id, productslist:req.body.productslist});
         const product = await productInfo.findById(req.params.id);
 
         

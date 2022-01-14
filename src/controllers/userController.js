@@ -1,14 +1,8 @@
 import UserInfos from "../models/user";
 import productInfo from "../models/product";
-import order from "../models/order";
-
-import sendSms from"../helpers/sendSms";
-
-
-
 import bcrypt from "bcrypt"
 import TokenAuth from "../helpers/tokenAuth"
-import sendSms from "../helpers/sendSms";
+
 
 class UserController {
 
@@ -120,32 +114,6 @@ class UserController {
       }
           return res.status(200).json({message:"retrived all booked product successfully", data:orderedProducts})
   }
-
-    
-
-
-//   // a function which will update order
-
-//   static async changeOrderStatus(req,res){
-
-//     const{id,status}=req.body
-//     const product = await productInfo.findByIdAndUpdate(id,{status:status},{new:true})
-     
-//     if(!product){
-//         return res.status(404).json({error:"failed to update status"});
-//     }
-
-//     // sendSms(
-//     //     product.user.lastName,
-//     //     product.product.name,
-//     //     product.status,
-//     //     product._id,
-//     //     product.user.phone);
-//     // return res.status(200).json({message:"success", data:product});
-
-// } 
-
-
 
 
 }
