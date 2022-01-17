@@ -2,13 +2,13 @@ import UserInfos from "../models/user";
 import productInfo from "../models/product";
 import order from "../models/order";
 
-import sendSms from"../helpers/sendSms";
 
 
 
-import bcrypt from "bcrypt"
-import TokenAuth from "../helpers/tokenAuth"
-import sendSms from "../helpers/sendSms";
+
+import bcrypt from "bcrypt";
+import TokenAuth from "../helpers/tokenAuth";
+// import sendSms from "../helpers/sendSms";
 
 class UserController {
 
