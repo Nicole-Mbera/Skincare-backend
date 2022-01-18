@@ -6,7 +6,9 @@ class orderController{
     //create order
     static async createorder(req,res){
         const order= await orderInfos.create({user:req.user._id, productslist:req.body.productslist});
+
         const product = await productInfo.findById(req.params.id); 
+
 
         
 

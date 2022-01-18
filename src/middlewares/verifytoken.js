@@ -7,7 +7,7 @@ const isUserExist= async(req, res, next)=>{
  const token= req.header("X-auth-token");
 if(!token){
 
-    return res.status(400).json({err:"please provide token"})
+    return res.status(400).json({error:"please provide token"})
 }
 const data= TokenAuth.decodeToken(token);
 
