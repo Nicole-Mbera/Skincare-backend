@@ -1,9 +1,7 @@
 import mongoose from "mongoose";
 const orderSchema= new mongoose.Schema(
 {
-// userId:String,
-// productId:String,
-// status:String,
+
 user: {
     type: mongoose.Schema.ObjectId,
     ref:"User"
@@ -16,7 +14,6 @@ user: {
 
 ],
 
-// totalAmount: Number,
 
 status:{
     type:String,
