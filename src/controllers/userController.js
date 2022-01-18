@@ -81,16 +81,13 @@ class UserController {
     }
 
   
-    
-        
 
-       
     
     static async userLogin(req,res,){
       const user= await UserInfos.findOne({email:req.body.email})
     
       if(!user){
-          return res.status(404).json({error:"user not foumd! first sign up"})
+          return res.status(404).json({error:"user not found! first sign up"})
       }
     
     
@@ -98,7 +95,7 @@ class UserController {
           user.password=null;
           const token= TokenAuth.tokenGenerator({user:user});
     
-          return res.status(200).json ({message:"successfully logged in", token:token });
+          return res.status(200).json ({message:"successfully logged in", token:token, data: user });
       }
     
       return res.status(400).json({error:"wrong password"});

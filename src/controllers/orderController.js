@@ -6,7 +6,7 @@ class orderController{
     //create order
     static async createorder(req,res){
         const order= await orderInfos.create({user:req.user._id, productslist:req.body.productslist});
-        const product = await productInfo.findById(req.params.id);
+        const product = await productInfo.findById(req.params.id); 
 
         
 
@@ -71,6 +71,8 @@ class orderController{
       .status(200)
       .json({ message: " order deleted successfully", data: order });
   }
+  
+  // update One Order
   static async updateOneorder(req, res) {
     const order = await orderInfos.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -93,27 +95,27 @@ class orderController{
       .json({ Message: "order Updated Successfully", data: order });
   }
 
-  static async changeOrderStatus(req, res) {
-    const { id, status } = req.body;
-    const order = await orderInfos.findByIdAndUpdate(
-      id,
-      { status: status },
-      { new: true }
-    );
-    if (!order) {
-      return res.status(404).json({ error: "failed to upadate status" });
-    }
-    sendSms(
-      order.user.lastName,
-      order.product.names,
-      order.status,
-      order.id,
-      order.user.phone
-    );
-    return res
-      .status(200)
-      .json({ message: "success order updated", data: order });
-  }
+  // static async changeOrderStatus(req, res) {
+  //   const { id, status } = req.body;
+  //   const order = await orderInfos.findByIdAndUpdate(
+  //     id,
+  //     { status: status },
+  //     { new: true }
+  //   );
+  //   if (!order) {
+  //     return res.status(404).json({ error: "failed to upadate status" });
+  //   }
+  //   sendSms(
+  //     order.user.lastName,
+  //     order.product.names,
+  //     order.status,
+  //     order.id,
+  //     order.user.phone
+  //   );
+  //   return res
+  //     .status(200)
+  //     .json({ message: "success order updated", data: order });
+  // }
 }
 
 export default orderController;
