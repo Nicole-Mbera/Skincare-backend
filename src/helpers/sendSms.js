@@ -1,27 +1,36 @@
-// import dotenv from "dotenv"
+import dotenv from "dotenv";
 
+dotenv.config();
+const client = require("twilio")(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_ID,
+);
 
-// dotenv.config();
-// const client = require("twilio")(
-//     process.env.TWILIO_ACCOUNT_SID,
-//     process.env.TWILIO_AUTH_ID
-// );
+const sendSms = (
+  userName,
+  Products,
+  payment,
+  applicationStatus,
+  applicationId,
+  userphone
+) => {
+const status=  applicationStatus == "paid"? " Succefull paid": " not yet paid "
+  client.messages
+    .create({
+      body:
+        "hey " +
+          userName +
+          ", your " +
+          Products.toString() +
+          " products, Amount to Pay: " +
+          payment +
+          " frw " +status
+          + " the application Id: " + applicationId,
 
-// const sendSms = (userName, ProductName, applicationStatus,applicationId, userPhone) => {
-//     client.messages.create({ body: 
-//         "Hey "+
-//         userName+
-//         ", Your "+
-//         ProductName+
-//         " Product Ordered "+
-//         applicationStatus+
-//         ", RefId:"
-//         +applicationId,
-//         from:"+12676134616",
-//         to:userPhone 
+      from: "+12676134616",
 
-//     }).then((message)=> console.log(message.sid))
-    
-// };
-
-// export default sendSms;
+      to: userphone,
+    })
+    .then((message) => console.log(message.sid));
+};
+export default sendSms;

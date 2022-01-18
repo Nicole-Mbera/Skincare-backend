@@ -1,9 +1,11 @@
 import UserInfos from "../models/user";
 import productInfo from "../models/product";
 import order from "../models/order";
-import bcrypt from "bcrypt"
-import TokenAuth from "../helpers/tokenAuth"
-import sendSms from "../helpers/sendSms";
+import bcrypt from "bcrypt";
+import TokenAuth from "../helpers/tokenAuth";
+// import sendSms from "../helpers/sendSms";
+
+
 
 class UserController {
 
@@ -79,16 +81,13 @@ class UserController {
     }
 
   
-    
-        
 
-       
     
     static async userLogin(req,res,){
       const user= await UserInfos.findOne({email:req.body.email})
     
       if(!user){
-          return res.status(404).json({error:"user not foumd! first sign up"})
+          return res.status(404).json({error:"user not found! first sign up"})
       }
     
     
@@ -96,12 +95,15 @@ class UserController {
           user.password=null;
           const token= TokenAuth.tokenGenerator({user:user});
     
-          return res.status(200).json ({message:"successfully logged in", token:token });
+          return res.status(200).json ({message:"successfully logged in", token:token, data: user });
       }
     
       return res.status(400).json({error:"wrong password"});
       
     }
+
+    
+
 
 
     static async getAllOrderedproductsByProductId (req,res){
@@ -112,31 +114,6 @@ class UserController {
       }
           return res.status(200).json({message:"retrived all booked product successfully", data:orderedProducts})
   }
-
-    
-
-
-//   // a function which will update order
-
-//   static async changeOrderStatus(req,res){
-
-//     const{id,status}=req.body
-//     const product = await productInfo.findByIdAndUpdate(id,{status:status},{new:true})
-     
-//     if(!product){
-//         return res.status(404).json({error:"failed to update status"});
-//     }
-
-//     // sendSms(
-//     //     product.user.lastName,
-//     //     product.product.name,
-//     //     product.status,
-//     //     product._id,
-//     //     product.user.phone);
-//     // return res.status(200).json({message:"success", data:product});
-
-// } 
-
 
 
 }
