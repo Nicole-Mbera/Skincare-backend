@@ -4,11 +4,9 @@
   "description": "Skincare project will be an e-commerce platform that sells natural, vegan skincare products",
   "main": "server.js",
   "scripts": {
-
     "start": "babel-node ./server.js",
     "dev-start": "babel-node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-
   },
   "author": "Elite group",
   "license": "ISC",
@@ -29,6 +27,7 @@
     "mongoose": "^6.1.0",
     "twilio": "^3.72.0",
     "validator": "^13.7.0"
+
   
   },
   "devDependencies": {
