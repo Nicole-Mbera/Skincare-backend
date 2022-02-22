@@ -29,5 +29,8 @@
     "mongoose": "^6.1.0",
     "twilio": "^3.72.0",
     "validator": "^13.7.0"
+  },
+  "devDependencies": {
+
   }
 }
